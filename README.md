@@ -29,7 +29,8 @@ Este é um projeto fictício desenvolvido para atender às necessidades da empre
 
 ## API Endpoints
 A aplicação fornece uma API REST para interação com os produtos. Aqui estão alguns endpoints principais:
-![image](https://github.com/teofilonicolau/nunes_sports_spring_boot/assets/97030160/b050b7d9-3e70-4055-be99-13d4b1bd876d)
+![image](https://github.com/teofilonicolau/nunes_sports_spring_boot/assets/97030160/04eed242-f490-4929-b77e-bfffa99828e6)
+
 
 
 - **GET /api/produtos:** Obtém a lista de todos os produtos.
