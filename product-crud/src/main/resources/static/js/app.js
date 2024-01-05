@@ -1,3 +1,4 @@
+// Arquivo app.js
 
 function criarProduto() {
     const nome = document.getElementById('nome').value;
@@ -5,7 +6,8 @@ function criarProduto() {
     const descricao = document.getElementById('descricao').value;
     const preco = document.getElementById('preco').value;
 
-    fetch('/api/produtos', {
+    // Atualize a URL para incluir o contexto da sua aplicação
+    fetch('/nunesSports/nunesSports/product-crud/api/produtos', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -20,16 +22,14 @@ function criarProduto() {
     .catch(error => console.error('Erro ao criar produto:', error));
 }
 
-
 function lerProdutos() {
-    fetch('/api/produtos')
+    fetch('/nunesSports/nunesSports/product-crud/api/produtos')
     .then(response => response.json())
     .then(data => {
         document.getElementById('resultado').innerHTML = JSON.stringify(data, null, 2);
     })
     .catch(error => console.error('Erro ao ler produtos:', error));
 }
-
 
 function atualizarProduto() {
     const id = obterIdProduto();
@@ -40,7 +40,7 @@ function atualizarProduto() {
 
     const dadosDoProduto = { nome, codigo, descricao, preco };
 
-    fetch(`/api/produtos/${id}`, {
+    fetch(`/nunesSports/nunesSports/product-crud/api/produtos/${id}`, {
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json'
@@ -55,11 +55,10 @@ function atualizarProduto() {
     .catch(error => console.error('Erro ao atualizar produto:', error));
 }
 
-
 function excluirProduto() {
     const id = obterIdProduto();
 
-    fetch(`/api/produtos/${id}`, {
+    fetch(`/nunesSports/nunesSports/product-crud/api/produtos/${id}`, {
         method: 'DELETE'
     })
     .then(() => {
@@ -73,4 +72,3 @@ function excluirProduto() {
 function obterIdProduto() {
     return document.getElementById('id').value;
 }
-
