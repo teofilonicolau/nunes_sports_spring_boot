@@ -26,10 +26,13 @@ Este é um projeto fictício desenvolvido para atender às necessidades da empre
 2. Abra o projeto em sua IDE favorita.
 3. Execute a aplicação Spring Boot.
 4. Acesse [http://localhost:8080](http://localhost:8080) para utilizar a aplicação.
+5. ![image](https://github.com/teofilonicolau/nunes_sports_spring_boot/assets/97030160/d5d431d3-acdc-42ff-bc02-6dc6a889f604)
+
 
 ## API Endpoints
 A aplicação fornece uma API REST para interação com os produtos. Aqui estão alguns endpoints principais:
-![image](https://github.com/teofilonicolau/nunes_sports_spring_boot/assets/97030160/04eed242-f490-4929-b77e-bfffa99828e6)
+![image](https://github.com/teofilonicolau/nunes_sports_spring_boot/assets/97030160/f3858331-83c9-44e5-83df-fdfb14333471)
+
 
 
 
