@@ -5,11 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CRUD de Produtos - Nunes Sports</title>
     <link rel="stylesheet" href="/static/css/styles.css">
-    <script src="/static/js/app.js"></script>
 </head>
 <body>
-<h1>CRUD de Produtos - Nunes Sports</h1>
 
+<h1>CRUD de Produtos - Nunes Sports</h1>
 
 <form id="produtoForm">
     <label for="nome">Nome:</label>
@@ -24,11 +23,67 @@
     <label for="preco">Preço:</label>
     <input type="number" id="preco" name="preco" step="0.01" required>
 
-
     <button type="button" onclick="criarProduto()">Criar</button>
     <button type="button" onclick="lerProdutos()">Ler</button>
     <button type="button" onclick="atualizarProduto()">Atualizar</button>
     <button type="button" onclick="excluirProduto()">Excluir</button>
 </form>
+
+<div id="feedback"></div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+
+
+        window.criarProduto = function () {
+            const nome = document.getElementById('nome').value;
+            const codigo = document.getElementById('codigo').value;
+            const descricao = document.getElementById('descricao').value;
+            const preco = document.getElementById('preco').value;
+
+
+            fetch('http://localhost:8080/api/produtos', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ nome, codigo, descricao, preco })
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Produto criado:', data);
+                exibirFeedback('Produto criado com sucesso', 'green');
+            })
+            .catch(error => {
+                console.error('Erro ao criar produto:', error);
+                exibirFeedback('Erro ao criar produto', 'red');
+            });
+        }
+
+
+        function executarOperacao(operacao, produtoId) {
+            // Implementar lógica para executar a operação (criar, atualizar, excluir, etc.)
+            // Utilize a ID do produto (produtoId) conforme necessário
+            if (operacao === 'atualizar') {
+                atualizarProduto(produtoId);
+            } else if (operacao === 'excluir') {
+                excluirProduto(produtoId);
+            }
+
+        }
+
+
+        function exibirFeedback(mensagem, cor) {
+            const feedbackElement = document.getElementById('feedback');
+
+            if (feedbackElement) {
+                feedbackElement.innerHTML = mensagem;
+                feedbackElement.style.color = cor;
+            } else {
+                console.error('Elemento de feedback não encontrado');
+            }
+        }
+    });
+</script>
 </body>
 </html>

@@ -27,10 +27,8 @@ public class ProdutoService {
     }
 
     public Produto updateProduto(String id, Produto produto) {
-        if (produtoRepository.existsById(id)) {
-            return produtoRepository.save(produto);
-        }
-        return null; // Produto não encontrado
+        produto.setId(id);
+        return produtoRepository.save(produto);
     }
 
     public void deleteProduto(String id) {
